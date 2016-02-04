@@ -33,6 +33,7 @@
             this.scoreLabel = new System.Windows.Forms.Label();
             this.pointsLabel = new System.Windows.Forms.Label();
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
+            this.gameOverLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.mainAreaPb)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,6 +45,7 @@
             this.mainAreaPb.Size = new System.Drawing.Size(617, 504);
             this.mainAreaPb.TabIndex = 0;
             this.mainAreaPb.TabStop = false;
+            this.mainAreaPb.Paint += new System.Windows.Forms.PaintEventHandler(this.mainAreaPb_Paint);
             // 
             // scoreLabel
             // 
@@ -64,11 +66,25 @@
             this.pointsLabel.Size = new System.Drawing.Size(0, 26);
             this.pointsLabel.TabIndex = 2;
             // 
+            // gameTimer
+            // 
+            this.gameTimer.Enabled = true;
+            // 
+            // gameOverLabel
+            // 
+            this.gameOverLabel.AutoSize = true;
+            this.gameOverLabel.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.gameOverLabel.Location = new System.Drawing.Point(137, 100);
+            this.gameOverLabel.Name = "gameOverLabel";
+            this.gameOverLabel.Size = new System.Drawing.Size(0, 33);
+            this.gameOverLabel.TabIndex = 3;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(679, 606);
+            this.Controls.Add(this.gameOverLabel);
             this.Controls.Add(this.pointsLabel);
             this.Controls.Add(this.scoreLabel);
             this.Controls.Add(this.mainAreaPb);
@@ -87,6 +103,7 @@
         private System.Windows.Forms.Label scoreLabel;
         private System.Windows.Forms.Label pointsLabel;
         private System.Windows.Forms.Timer gameTimer;
+        private System.Windows.Forms.Label gameOverLabel;
     }
 }
 

@@ -19,12 +19,12 @@ namespace Snake
 
         public Settings()
         {
-            Width = 10;
-            Heigth = 10;
+            Width = 20;
+            Heigth = 20;
             Speed = 15;
             Points = 10;
             GameOver = false;
-            direction = Direction.Right;
+            direction = Direction.Down;
         }
     }
 }
