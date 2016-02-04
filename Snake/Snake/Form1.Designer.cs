@@ -66,10 +66,6 @@
             this.pointsLabel.Size = new System.Drawing.Size(0, 26);
             this.pointsLabel.TabIndex = 2;
             // 
-            // gameTimer
-            // 
-            this.gameTimer.Enabled = true;
-            // 
             // gameOverLabel
             // 
             this.gameOverLabel.AutoSize = true;
@@ -91,6 +87,8 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Snake";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.mainAreaPb)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

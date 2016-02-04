@@ -63,7 +63,7 @@ namespace Snake
 
         public void MoveSnake()
         {
-            for (int i = Snake.Count; i <= 0; i--)
+            for (int i = Snake.Count-1; i >= 0; i--)
             {
                 //switch head direction and the rest will take the poistion of the previouse one
 
@@ -173,6 +173,16 @@ namespace Snake
                 gameOverLabel.Text = gameOverText.ToString();
                 gameOverLabel.Visible = true;
             }
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            Input.ChangeState(e.KeyCode, true);
+        }
+
+        private void Form1_KeyUp(object sender, KeyEventArgs e)
+        {
+            Input.ChangeState(e.KeyCode, false);
         }
     }
 }

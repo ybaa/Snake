@@ -21,5 +21,11 @@ namespace Snake
             else
                 return true;
         }
+
+        //check if button is pressed (necessery fo keyup and keydown
+        public static void ChangeState(Keys key, bool state)
+        {
+            keyTable[key] = state;
+        }
     }
 }
