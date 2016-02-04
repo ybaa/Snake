@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.mainAreaPb = new System.Windows.Forms.PictureBox();
             this.scoreLabel = new System.Windows.Forms.Label();
             this.pointsLabel = new System.Windows.Forms.Label();
+            this.gameTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.mainAreaPb)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,6 +86,7 @@
         private System.Windows.Forms.PictureBox mainAreaPb;
         private System.Windows.Forms.Label scoreLabel;
         private System.Windows.Forms.Label pointsLabel;
+        private System.Windows.Forms.Timer gameTimer;
     }
 }
 

@@ -8,8 +8,8 @@ namespace Snake
 {
     class Circle
     {
-        private int X { set; get; }
-        private int Y { set; get; }
+        public int X { set; get; }
+        public int Y { set; get; }
 
         public Circle()
         {

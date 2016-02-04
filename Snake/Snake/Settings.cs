@@ -9,13 +9,13 @@ namespace Snake
     public enum Direction {Down, Up, Left, Right};
     class Settings
     {
-        private static int Width { set; get; }
-        private static int Heigth { set; get; }
-        private static int Speed { set; get; }
-        private static int Score { set; get; }
-        private static int Points { set; get; }
-        private static bool GameOver { set; get; }
-        private static Direction direction { set; get; }
+        public static int Width { set; get; }
+        public static int Heigth { set; get; }
+        public static int Speed { set; get; }
+        public static int Score { set; get; }
+        public static int Points { set; get; }
+        public static bool GameOver { set; get; }
+        public static Direction direction { set; get; }
 
         public Settings()
         {
