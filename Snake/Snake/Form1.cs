@@ -14,6 +14,7 @@ namespace Snake
     {
         private List<Circle> Snake = new List<Circle>();
         private Circle Food = new Circle();
+        private int DifficultyCounter = 0;
 
         public Form1()
         {
@@ -23,7 +24,7 @@ namespace Snake
             new Settings();
 
             //set timer
-            gameTimer.Interval = 1000/Settings.Speed;
+            //gameTimer.Interval = 1000/Settings.Speed;
             gameTimer.Tick += UpdateScreen;
             gameTimer.Start();
 
@@ -37,10 +38,12 @@ namespace Snake
         public void UpdateScreen(object sender, EventArgs e)
         {
             //check game over
-            if(Settings.GameOver)
+            if(Settings.GameOver == true)
             {
                 if (Input.KeyPressed(Keys.Enter))
+                {
                     StartGame();
+                }
               
             }
             else
@@ -87,6 +90,30 @@ namespace Snake
                             Snake[i].Y++;
                             break;
                     }
+
+                    int maxXPosition = mainAreaPb.Size.Width / Settings.Width;
+                    int maxYposition = mainAreaPb.Size.Height / Settings.Heigth;
+
+                    //detect collisiton with borders
+                    if (Snake[i].X < 0 || Snake[i].Y < 0 || Snake[i].X > maxXPosition || Snake[i].Y >= maxYposition)
+                        Die();
+
+                    //detect collision with body
+                    for(int j = 1; j < Snake.Count ; j++)
+                    {
+                        if (Snake[i].X == Snake[j].X && Snake[i].Y == Snake[j].Y)
+                            Die();
+                    }
+
+                    //eating food
+                    if(Snake[i].X == Food.X && Snake[i].Y == Food.Y)
+                    {
+                        Eat();
+                    }
+
+                    
+
+
                 }
                 else
                 {
@@ -100,6 +127,9 @@ namespace Snake
         private void StartGame()
         {
             gameOverLabel.Visible = false;
+            Settings.Score = 0;
+            DifficultyCounter = 1;
+            gameTimer.Interval = 100;
 
             //set default settings
             new Settings();
@@ -112,7 +142,7 @@ namespace Snake
             Snake.Add(head);
 
             //set score label
-            scoreLabel.Text = Settings.Score.ToString();
+            pointsLabel.Text = Settings.Score.ToString();
 
             GenerateFood();
 
@@ -148,7 +178,7 @@ namespace Snake
                     if (i == 0) //head
                         snakeColor = Brushes.Black;
                     else // rest
-                        snakeColor = Brushes.Blue;
+                        snakeColor = Brushes.Green;
 
 
 
@@ -159,7 +189,7 @@ namespace Snake
                                                                Settings.Heigth));
 
                     //draw food
-                    area.FillEllipse(Brushes.Red, new Rectangle(Food.X * Settings.Width,
+                    area.FillEllipse(Brushes.Yellow, new Rectangle(Food.X * Settings.Width,
                                                                 Food.Y * Settings.Heigth,
                                                                 Settings.Width,
                                                                 Settings.Heigth));
@@ -172,6 +202,7 @@ namespace Snake
                 string gameOverText = "Game over, your final score is " + Settings.Score + "\nPress Enter to try again";
                 gameOverLabel.Text = gameOverText.ToString();
                 gameOverLabel.Visible = true;
+               
             }
         }
 
@@ -184,5 +215,35 @@ namespace Snake
         {
             Input.ChangeState(e.KeyCode, false);
         }
+
+        private void Die()
+        {
+            Settings.GameOver = true;
+            
+        }
+
+        private void Eat()
+        {
+            Circle food = new Circle();
+            food.X = Snake[Snake.Count - 1].X;
+            food.Y = Snake[Snake.Count - 1].Y;
+            Snake.Add(food);
+
+            GenerateFood();
+
+            Settings.Score += Settings.Points;
+            pointsLabel.Text = Settings.Score.ToString();
+
+            //making the game more difficult
+            DifficultyCounter++;
+            if (DifficultyCounter % 7 == 0)
+            { 
+               // Settings.Speed += 1;
+                gameTimer.Interval -= 10;
+            
+            }
+              
+        }
     }
+
 }

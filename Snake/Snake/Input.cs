@@ -19,7 +19,7 @@ namespace Snake
             if (keyTable[key] == null)
                 return false;
             else
-                return true;
+                return (bool)keyTable[key];
         }
 
         //check if button is pressed (necessery fo keyup and keydown

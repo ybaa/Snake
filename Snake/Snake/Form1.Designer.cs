@@ -39,10 +39,10 @@
             // 
             // mainAreaPb
             // 
-            this.mainAreaPb.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.mainAreaPb.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.mainAreaPb.Location = new System.Drawing.Point(27, 31);
             this.mainAreaPb.Name = "mainAreaPb";
-            this.mainAreaPb.Size = new System.Drawing.Size(617, 504);
+            this.mainAreaPb.Size = new System.Drawing.Size(621, 504);
             this.mainAreaPb.TabIndex = 0;
             this.mainAreaPb.TabStop = false;
             this.mainAreaPb.Paint += new System.Windows.Forms.PaintEventHandler(this.mainAreaPb_Paint);
@@ -51,6 +51,7 @@
             // 
             this.scoreLabel.AutoSize = true;
             this.scoreLabel.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.scoreLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.scoreLabel.Location = new System.Drawing.Point(27, 553);
             this.scoreLabel.Name = "scoreLabel";
             this.scoreLabel.Size = new System.Drawing.Size(65, 26);
@@ -79,6 +80,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(679, 606);
             this.Controls.Add(this.gameOverLabel);
             this.Controls.Add(this.pointsLabel);

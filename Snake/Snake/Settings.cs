@@ -17,14 +17,17 @@ namespace Snake
         public static bool GameOver { set; get; }
         public static Direction direction { set; get; }
 
+      //  public static int DifficultyCounter { set; get; }
+
         public Settings()
         {
             Width = 20;
             Heigth = 20;
-            Speed = 15;
+            Speed = 12;
             Points = 10;
             GameOver = false;
             direction = Direction.Down;
+            //DifficultyCounter = 1;
         }
     }
 }
